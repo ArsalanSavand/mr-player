@@ -1,0 +1,23 @@
+<div class="container py-3">
+  <div class="mat-h2 m-0">Welcome to</div>
+  <div class="mat-display-3 mb-3 font-weight-bold"><span class="mat-primary">PlaysEM</span></div>
+  <p>Host and join parties and keep shuffling sick songs.</p>
+
+  <div class="mat-display-1 mt-5 mb-4"><b>Explore Parties</b></div>
+  <div class="aa">
+    <div class="music-container" *ngFor="let party of parties">
+      <div class="cover mb-3" [style.background-image]="'url('+ party.cover +')'">
+        <div class="overlay-shadow"></div>
+        <div matRipple></div>
+        <button mat-button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <button class="play" mat-icon-button>
+          <mat-icon>play_arrow</mat-icon>
+        </button>
+      </div>
+      <p class="clamp font-weight-medium">{{ party.name }}</p>
+      <p class="clamp mat-hint mb-0">{{ party.description }}</p>
+    </div>
+  </div>
+</div>

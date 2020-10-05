@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Validators, FormBuilder, AbstractControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '@app/core/auth/auth.service';
 import { ApiError } from '@app/interfaces/api-error';
-import { AuthService } from '@app/services/auth.service';
+import { ReactiveFormData } from '@app/interfaces/reactive-form-data';
+import { HttpErrorResponseApi } from '@app/models/http-error-response-api';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,44 +16,41 @@ export class SignInComponent implements OnInit {
   /**
    * Sign in form
    */
-  form: FormGroup;
-
-  /**
-   * API loading indicator
-   */
-  loading = false;
-
-  /**
-   * API errors
-   */
-  errors: ApiError = {};
+  form: ReactiveFormData = {
+    error: {},
+  };
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     /**
-     * Setup form
+     * Setup form.
      */
-    this.form = this.formBuilder.group({
+    this.form.form = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  get f() {
-    return this.form.controls;
+  get f(): { [p: string]: AbstractControl } {
+    return this.form.form.controls;
   }
 
+  /**
+   * Submit credentials to sign the user in.
+   */
   submit(): void {
-    this.loading = true;
-    this.errors = {};
+    this.form.loading = true;
+    this.form.error = {};
 
-    this.authService.signIn(this.f.username.value, this.f.password.value).subscribe(() => {
-    }, error => {
-      this.loading = false;
-      this.errors = error.error as ApiError;
+    this.authService.signIn(this.f.username.value, this.f.password.value).subscribe((): void => {
+    }, (error: HttpErrorResponseApi): void => {
+      this.form.loading = false;
+      this.form.error = error.error;
+      this.snackBar.open(error.error.non_field_errors[0]);
     });
   }
 }

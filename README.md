@@ -1,49 +1,27 @@
-# [PlaysEM](https://www.playsem.com/)
+# Playsem
 
-Host and join parties and keep shuffling sick songs.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
-Back-end repository: [playsem-api](https://github.com/AmirSavand/playsem-api).
+## Development server
 
-![PlaysEM](https://gonevis.s3.amazonaws.com/dolphin/0d415604-d361-4d9a-ac35-b0eccae5d1b2/1583654160929_PlaysEM.png)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Development
-
-This project is made with Angular.
-
-### Serve
-
-- Local: `npm run serve`
-- Production: `npm run serve-prod`
-
-### Build
-
-- Local: `npm run build`
-- Production: `npm run build-production`
-
-### Deployment
-
-- Production: `npm run deploy`
-
-### Code Scaffolding
+## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-### Unit Tests
+## Build
 
-We do not write unit tests currently.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Running unit tests
 
-### End-to-end Tests
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-We do not write end-to-end tests currently.
+## Running end-to-end tests
 
-Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-### Code Quality
-
-Run `npm run lint` to execute linting via [TSLint](https://palantir.github.io/tslint/).
-
-### Further Help
+## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

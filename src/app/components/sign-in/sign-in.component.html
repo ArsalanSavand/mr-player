@@ -1,26 +1,42 @@
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-3">
-      <div class="card">
-        <div class="card-header text-center">Sign In</div>
-        <div class="card-body">
-          <form (ngSubmit)="submit()" [formGroup]="form">
-            <div class="form-group">
-              <input type="text" name="username" class="form-control" placeholder="Username" formControlName="username">
-            </div>
-            <div class="form-group">
-              <input type="password" name="password" class="form-control" placeholder="Password"
-                     formControlName="password">
-            </div>
-            <p class="text-danger" *ngIf="errors.non_field_errors">{{ errors.non_field_errors[0] }}</p>
-            <div class="text-center">
-              <button class="btn btn-primary rounded btn-block" [disabled]="loading">Submit</button>
-            </div>
-          </form>
-          <!-- Reset password -->
-          <a class="small" routerLink="/reset-password">Forgot password?</a>
-        </div>
+<div class="container h-100">
+  <div class="row justify-content-center align-items-center h-100">
+    <form [formGroup]="form.form" (ngSubmit)="submit()" class="col-12 col-md-4">
+      <div class="mat-display-1 mb-3" align="center">Sign in to Playsem</div>
+      <p class="mb-4" align="center">Sign in with your account to access Playsem features.</p>
+      <div>
+        <mat-form-field class="d-block" appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" placeholder="John Wick" name="username" formControlName="username">
+        </mat-form-field>
+
       </div>
-    </div>
+      <mat-form-field class="d-block" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="********" name="password" formControlName="password">
+        <p class="text-danger" *ngIf="form.error.non_field_errors">{{ form.error.non_field_errors[0] }}</p>
+      </mat-form-field>
+      <button mat-raised-button class="w-100" type="submit" color="primary">Sign in</button>
+    </form>
+
+    <!--  <div class="card">-->
+    <!--    <div class="card-header text-center">Sign In</div>-->
+    <!--    <div class="card-body">-->
+    <!--      <form (ngSubmit)="submit()" [formGroup]="form.form">-->
+    <!--        <div class="form-group">-->
+    <!--          <input type="text" name="username" class="form-control" placeholder="Username" formControlName="username">-->
+    <!--        </div>-->
+    <!--        <div class="form-group">-->
+    <!--          <input type="password" name="password" class="form-control" placeholder="Password"-->
+    <!--                 formControlName="password">-->
+    <!--        </div>-->
+    <!--        <p class="text-danger" *ngIf="form.error.non_field_errors">{{ form.error.non_field_errors[0] }}</p>-->
+    <!--        <div class="text-center">-->
+    <!--          <button class="btn btn-primary rounded btn-block" [disabled]="form.loading">Submit</button>-->
+    <!--        </div>-->
+    <!--      </form>-->
+    <!--      &lt;!&ndash; Reset password &ndash;&gt;-->
+    <!--      <a class="small" routerLink="/reset-password">Forgot password?</a>-->
+    <!--    </div>-->
+    <!--  </div>-->
   </div>
 </div>

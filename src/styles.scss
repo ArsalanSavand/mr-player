@@ -1,0 +1,77 @@
+@import "variables";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons+Round');
+@import url('https://fonts.googleapis.com/css?family=Google+Sans:300,400,500,600,700&display=swap');
+
+@include mat-core($typography);
+@include mat-core-theme($theme);
+@include mat-card-theme($theme);
+@include mat-icon-theme($theme);
+@include mat-button-theme($theme);
+@include mat-form-field-theme($theme);
+@include mat-input-theme($theme);
+@include mat-snack-bar-theme($theme);
+
+/* Variables */
+
+$primary: null;
+$success: null;
+$danger: null;
+$secondary: null;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+/* Mixins */
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/resize";
+@import "~bootstrap/scss/mixins/text-truncate";
+@import "~bootstrap/scss/mixins/visibility";
+@import "~bootstrap/scss/mixins/grid-framework";
+@import "~bootstrap/scss/mixins/grid";
+
+/* Utilities */
+
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities/align";
+@import "~bootstrap/scss/utilities/display";
+@import "~bootstrap/scss/utilities/embed";
+@import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/utilities/float";
+@import "~bootstrap/scss/utilities/overflow";
+@import "~bootstrap/scss/utilities/position";
+@import "~bootstrap/scss/utilities/sizing";
+@import "~bootstrap/scss/utilities/spacing";
+@import "~bootstrap/scss/utilities/visibility";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-icon {
+  user-select: none;
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
